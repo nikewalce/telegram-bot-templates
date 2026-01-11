@@ -1,6 +1,6 @@
 from telegrinder import Telegrinder, API, Token
 
-api = API(Token("5873982989:AAHQopiGJ17LQJ-GDxSu6pbA9whLaVBhCAA"))
+api = API(Token(""))
 bot = Telegrinder(api)
 
 # Добавим импорт
