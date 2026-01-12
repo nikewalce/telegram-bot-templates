@@ -1,10 +1,13 @@
 from telegrinder import Telegrinder, API, Token
-
-api = API(Token(""))
-bot = Telegrinder(api)
-
-# Добавим импорт
 from telegrinder import Message
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
+TOKEN = os.getenv("TOKEN")
+
+api = API(Token(TOKEN))
+bot = Telegrinder(api)
 
 @bot.on.message()
 async def message_handler(message: Message):
