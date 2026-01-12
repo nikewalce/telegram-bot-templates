@@ -1,16 +1,12 @@
 from telegrinder import Telegrinder, API, Token
-from telegrinder import Message
-from dotenv import load_dotenv
-import os
-load_dotenv()
+from telegrinder_bot.config import BOT_TOKEN
+from telegrinder_bot.dispatch import build_dispatch
 
-TOKEN = os.getenv("TOKEN")
-
-api = API(Token(TOKEN))
+api = API(Token(BOT_TOKEN))
 bot = Telegrinder(api)
 
-@bot.on.message()
-async def message_handler(message: Message):
-    await message.answer(message.text.unwrap_or("Нет текста"))
+# загружаем корневой диспетчер
+bot.on.load(build_dispatch())
 
+#Запускает бота в асинхронном режиме, и будет получать и обрабатывать обновления в цикле
 bot.run_forever()

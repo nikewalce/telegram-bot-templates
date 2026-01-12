@@ -9,6 +9,7 @@
 4. poetry install
 5. poetry add telegrinder
 6. poetry add python-doten
+7. poetry add kungfu
 ```
 
 ## env:
