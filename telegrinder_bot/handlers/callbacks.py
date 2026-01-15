@@ -32,3 +32,20 @@ async def handle_press_inline_button(cb: CallbackQuery, index: int):
     Обработчик принимает параметр index типа int, который указан в шаблоне button/<index:int>
     """
     await cb.answer(f"Wow, you pressed '{index}' inline button!")
+
+"""
+Обработка других полезных нагрузок
+from telegrinder.rules import CallbackDataMap, CallbackDataJsonEq, CallbackDataJsonModel
+
+@dp.callback_query(CallbackDataJsonEq(dict(key="value")))
+async def handle_dict(cb: CallbackQuery):
+    await cb.answer(f"Really nice dict: {cb.decode_data().unwrap()!r}")
+
+@dp.on.callback_query(CallbackDataMap({"name": str, "amount": lambda amount: isinstance(amount, int) and amount >= 3}))
+async def handle_item(cb: CallbackQuery, name: str, amount: int):
+    await cb.answer(f"Picked item {name!r}, amount: {amount}")
+
+@dp.callback_query(CallbackDataJsonModel(Point))
+async def handle_point(data: Point):
+    return f"Point: x={data.x} y={data.y}"
+"""
