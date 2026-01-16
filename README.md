@@ -20,6 +20,7 @@
 4. poetry add python-telegram-bot
 5. poetry add python-doten
 ```
+## Примеры python-telegram-bot https://github.com/python-telegram-bot/python-telegram-bot/tree/master/examples
 
 ## env:
 ```
